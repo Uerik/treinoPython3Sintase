@@ -1,3 +1,3 @@
 # TreinoPython3Sintase
 
-Treinamento da sintase de python.
+Treinamento da sintase de python!

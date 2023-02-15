@@ -7,7 +7,7 @@ def exercicio2(numb):
     print(f'O numero informado foi {numb}')
 
 # 3 Faça um Programa que peça dois números e imprima a soma.
-def exercicio3(numb1, numb2):
+def exercicio33(numb1, numb2):
     sum = numb1 + numb2
     print(f'Soma de {numb1} + {numb2}: ', sum)
 

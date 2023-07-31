@@ -86,8 +86,24 @@ def exercicio8(produto1, produto2, produto3):
         print(f'Compre o {produto3}')
     
 # Faça um Programa que leia três números e mostre-os em ordem decrescente.
-def exercicio9(maior,meio,menor):
-    return
+def exercicio9(esquerda,meio,direita):
+    arr = []
+    # da esquerda para a direite
+    if esquerda > meio and esquerda > direita:
+        arr.append(esquerda)
+    if meio < esquerda and meio > direita:
+        arr.append(meio)
+    if direita < esquerda and direita < meio:
+        arr.append(direita)
+    # da direita para a esquerda
+    if direita > esquerda and direita > meio:
+        arr.append(direita)
+    if meio > esquerda and meio <  direita:
+        arr.append(meio)
+    if esquerda < direita and esquerda < meio:
+        arr.append(esquerda)
+    return print(arr)
+
 # Faça um Programa que pergunte em que turno você estuda. 
 # Peça para digitar M-matutino ou V-Vespertino ou N- Noturno. 
 # Imprima a mensagem "Bom Dia!", "Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
@@ -229,28 +245,93 @@ def exercicio14(n1,n2):
     else:
         print('Valor invalido')
 
-# Faça um Programa que peça os 3 lados de um triângulo. O programa deverá informar se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno.
+# Faça um Programa que peça os 3 lados de um triângulo. 
+# O programa deverá informar se os valores podem ser um triângulo. 
+# Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno.
 # Dicas:
 # Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
 # Triângulo Equilátero: três lados iguais;
 # Triângulo Isósceles: quaisquer dois lados iguais;
 # Triângulo Escaleno: três lados diferentes;
 def exercicio15():
-    return
-# Faça um programa que calcule as raízes de uma equação do segundo grau, na forma ax2 + bx + c. O programa deverá pedir os valores de a, b e c e fazer as consistências, informando ao usuário nas seguintes situações:
-# Se o usuário informar o valor de A igual a zero, a equação não é do segundo grau e o programa não deve fazer pedir os demais valores, sendo encerrado;
-# Se o delta calculado for negativo, a equação não possui raizes reais. Informe ao usuário e encerre o programa;
-# Se o delta calculado for igual a zero a equação possui apenas uma raiz real; informe-a ao usuário;
+    ladoA = int(input('Informe lado A: '))
+    ladoB = int(input('Informe lado B: '))
+    ladoC = int(input('Informe lado C: '))
+    if ladoA == ladoB and ladoA == ladoC:
+        print(f'Esse e um triângulo Equilátero!')
+    elif ladoA == ladoB or ladoA == ladoC or ladoB == ladoC:
+        print(f'Esse e um triângulo Isóceles!')
+    else:
+        print('Esse e um triângulo Escaleno!')
+
+# Faça um programa que calcule as raízes de uma equação do segundo grau, 
+# na forma ax2 + bx + c. 
+# O programa deverá pedir os valores de a, b e c e fazer as consistências, 
+# informando ao usuário nas seguintes situações:
+# Se o usuário informar o valor de A igual a zero, a equação não é do segundo grau 
+# e o programa não deve fazer pedir os demais valores, sendo encerrado;
+# Se o delta calculado for negativo, a equação não possui raizes reais. 
+# Informe ao usuário e encerre o programa;
+# Se o delta calculado for igual a zero a equação possui apenas uma raiz real; 
+# informe-a ao usuário;
 # Se o delta for positivo, a equação possui duas raiz reais; informe-as ao usuário;
 def exercicio16():
     return
-# Faça um Programa que peça um número correspondente a um determinado ano e em seguida informe se este ano é ou não bissexto.
+# Faça um Programa que peça um número correspondente a um determinado ano 
+# e em seguida informe se este ano é ou não bissexto.
 def exercicio17():
-    return
-# Faça um Programa que peça uma data no formato dd/mm/aaaa e determine se a mesma é uma data válida.
+    import calendar
+    from datetime import date
+
+    print('Bem Vindo!')
+
+    dataAno = date.today()
+    arr = []
+    count = 0
+    # cria um array de 0 ate o ano atual
+    while count <= dataAno.year:
+        arr.append(count)
+        count+=1
+    anoBisexto = []
+    # cria um array com os anos Bisextos
+    for i in arr:
+        if (i%4) == 0:
+            anoBisexto.append(i)
+    # pede um ano e informa se e Bisexto
+    pergunta = int(input('Informe o ano que deseja saber se e Bisexto: '))
+    if pergunta in anoBisexto:
+        print('O Ano e Bisexto!')
+        print(f'{calendar.month(pergunta,2)}')
+    else:
+        print('O ano NÂO e Bisexto')
+
+# Faça um Programa que peça uma data no formato dd/mm/aaaa 
+# e determine se a mesma é uma data válida.
 def exercicio18():
-    return
-# Faça um Programa que leia um número inteiro menor que 1000 e imprima a quantidade de centenas, dezenas e unidades do mesmo.
+    def verificacao_com_while():
+        dia  = int(input('Informe o dia: '))
+        while True:
+            if dia >= 32:
+                dia  = int(input('Informe o dia: '))
+            else:
+                break
+        mes = int(input('Informe o mes: '))
+        while True:
+            if mes >=13:
+                mes = int(input('Informe o mes: '))
+            else:
+                break
+        ano = int(input('Informe o ano: '))
+        while True:
+            if ano <= 0:
+                ano = int(input('Informe o ano: '))
+            else:
+                break
+        print(f'{dia}/{mes}/{ano}')
+    data = input('Informe uma data no formato "dd/mm/aaaa": ')
+exercicio18()
+# Faça um Programa que leia um número inteiro menor que 1000 
+# e imprima a quantidade de centenas, dezenas e unidades do mesmo.
 # Observando os termos no plural a colocação do "e", da vírgula entre outros. Exemplo:
 # 326 = 3 centenas, 2 dezenas e 6 unidades
 # 12 = 1 dezena e 2 unidades Testar com: 326, 300, 100, 320, 310,305, 301, 101, 311, 111, 25, 20, 10, 21, 11, 1, 7 e 16
